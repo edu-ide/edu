@@ -2,95 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Flutter Web Chrome (Reward App)",
+            "label": "Setup Yarn",
             "type": "shell",
-            "command": "flutter",
-            "args": [
-                "run",
-                "-d",
-                "chrome",
-                // "--dart-define=ENV=prod",
-                "--web-port",
-                "46151"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/reward_app"
-            },
+            "command": "corepack enable && corepack prepare yarn@4.4.0 --activate",
             "group": "build"
         },
         {
-            "label": "Flutter Android (Reward App)",
+            "label": "IDE Dev Server",
             "type": "shell",
-            "command": "flutter",
+            "command": "yarn",
             "args": [
-                "run",
-                "-d",
-                "emulator-5554",
-                "--dart-define=ENV=dev",
-                "--debug"
+                "watch"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/reward_app"
-            },
-            "group": "build"
-        },
-        {
-            "label": "Flutter iOS (Reward App)",
-            "type": "shell",
-            "command": "flutter",
-            "args": [
-                "run",
-                "-d",
-                "ios"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/reward_app"
-            },
-            "group": "build"
-        },
-        {
-            "label": "Flutter Clean (Reward App)",
-            "type": "shell",
-            "command": "flutter",
-            "args": [
-                "clean"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/reward_app"
-            },
-            "group": "build"
-        },
-        {
-            "label": "Flutter Pub Get (Reward App)",
-            "type": "shell",
-            "command": "flutter",
-            "args": [
-                "pub",
-                "get"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/reward_app"
-            },
-            "group": "build"
-        },
-        {
-            "label": "Spring Boot Run (Backend)1",
-            "type": "shell",
-            "command": "./gradlew",
-            "args": [
-                "bootRun",
-                "-Dfile.encoding=UTF-8"
-                // "--debug-jvm"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/reward-backend"
+                "cwd": "${workspaceFolder}/ide"
             },
             "group": "build",
-            "problemMatcher": [],
-            "detail": "Run Spring Boot application using Gradle bootRun"
+            "problemMatcher": []
         },
         {
-            "label": "Spring Boot Run (Backend)",
+            "label": "Landing Page Dev Server",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "dev"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/landingpage"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Backend Dev Server",
             "type": "shell",
             "command": "./gradlew",
             "args": [
@@ -100,16 +44,67 @@
                 "-Dfile.encoding=UTF-8"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/reward-backend"
+                "cwd": "${workspaceFolder}/backend"
             },
             "group": "build",
             "problemMatcher": []
         },
         {
-            "label": "Run Web + Backend",
+            "label": "LMS Dev Server",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "dev"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/lms"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Install Dependencies (IDE)",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "install"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/ide"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Install Dependencies (Landing Page)",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "install"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/landingpage"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Install Dependencies (LMS)",
+            "type": "shell",
+            "command": "yarn",
+            "args": [
+                "install"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/lms"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Run All Dev Servers",
             "dependsOn": [
-                "Flutter Web Chrome (Reward App)",
-                "Spring Boot Run (Backend)"
+                "IDE Dev Server",
+                "Landing Page Dev Server",
+                "Backend Dev Server",
+                "LMS Dev Server"
             ],
             "group": {
                 "kind": "build",
@@ -117,18 +112,12 @@
             }
         },
         {
-            "label": "Run Android + Backend",
+            "label": "Install All Dependencies",
             "dependsOn": [
-                "Flutter Android (Reward App)",
-                "Spring Boot Run (Backend)"
-            ],
-            "group": "build"
-        },
-        {
-            "label": "Run iOS + Backend",
-            "dependsOn": [
-                "Flutter iOS (Reward App)",
-                "Spring Boot Run (Backend)"
+                "Setup Yarn",
+                "Install Dependencies (IDE)",
+                "Install Dependencies (Landing Page)",
+                "Install Dependencies (LMS)"
             ],
             "group": "build"
         }

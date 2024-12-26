@@ -1,0 +1,32 @@
+[
+    {
+        "key": "ctrl+shift+alt+i",  // Mac에서는 cmd+shift+alt+i
+        "command": "workbench.action.tasks.runTask",
+        "args": "IDE Dev Server"
+    },
+    {
+        "key": "ctrl+shift+alt+p",  // Mac에서는 cmd+shift+alt+p
+        "command": "workbench.action.tasks.runTask",
+        "args": "Landing Page Dev Server"
+    },
+    {
+        "key": "ctrl+shift+alt+s",  // Mac에서는 cmd+shift+alt+s
+        "command": "workbench.action.tasks.runTask",
+        "args": "Backend Dev Server"
+    },
+    {
+        "key": "ctrl+shift+alt+m",  // Mac에서는 cmd+shift+alt+m
+        "command": "workbench.action.tasks.runTask",
+        "args": "LMS Dev Server"
+    },
+    {
+        "key": "ctrl+shift+alt+r",  // Mac에서는 cmd+shift+alt+r
+        "command": "workbench.action.tasks.runTask",
+        "args": "Run All Dev Servers"
+    },
+    {
+        "key": "ctrl+shift+alt+t",  // Mac에서는 cmd+shift+alt+t
+        "command": "workbench.action.tasks.runTask",
+        "args": "Install All Dependencies"
+    }
+] 
