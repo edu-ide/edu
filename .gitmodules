@@ -10,3 +10,6 @@
 [submodule "lms"]
 	path = lms
 	url = git@github.com:edu-ide/lms.git
+[submodule "admin"]
+	path = admin
+	url = git@github.com:edu-ide/admin.git
