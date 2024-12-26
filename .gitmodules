@@ -7,3 +7,6 @@
 [submodule "backend"]
 	path = backend
 	url = git@github.com:edu-ide/backend.git
+[submodule "lms"]
+	path = lms
+	url = git@github.com:edu-ide/lms.git
